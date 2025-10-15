@@ -6,12 +6,6 @@ Usage:
     python3 bh_zip_to_neo4j.py --zip /path/to/bloodhound.zip \
         --uri bolt://127.0.0.1:7687 --user neo4j --password secret \
         [--no-clear] [--batch 500]
-
-Notes:
- - Requires: pip install neo4j
- - The script expects nodes.json and relationships.json in the zip (or filenames containing 'nodes'/'relationships').
- - It stores the original BloodHound node id in node property `_bh_id`.
- - Labels are sanitized to [A-Za-z0-9_]. Non-conforming labels will be ignored.
 """
 
 import argparse
