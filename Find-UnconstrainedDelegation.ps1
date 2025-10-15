@@ -1,9 +1,9 @@
 <#
-  Find-UnconstrainedDelegation-PowerView.ps1
+  Find-UnconstrainedDelegation.ps1
   ------------------------------------------
     - Example usage:
-        .\Find-UnconstrainedDelegation-PowerView.ps1
-        .\Find-UnconstrainedDelegation-PowerView.ps1 -Domain corp.local -OutCsv C:\temp\ud.csv
+        .\Find-UnconstrainedDelegation.ps1
+        .\Find-UnconstrainedDelegation.ps1 -Domain corp.local -OutCsv C:\temp\ud.csv
 #>
 
 param(
