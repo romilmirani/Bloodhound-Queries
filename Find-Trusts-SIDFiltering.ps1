@@ -120,3 +120,9 @@ $unknown = ($rows | Where-Object { $_.SidFilteringStatus -eq 'Unknown' }).Count
 $disabled = ($rows | Where-Object { $_.SidFilteringStatus -eq 'Disabled' }).Count
 $enabled = ($rows | Where-Object { $_.SidFilteringStatus -eq 'Enabled' }).Count
 Write-Host ("[=] SID Filtering — Enabled: {0}  Disabled: {1}  Unknown: {2}" -f $enabled, $disabled, $unknown) -ForegroundColor Yellow
+
+
+Get-ADTrust -Filter * -Server <domain-or-dc> -Properties * |
+Select Name,TrustPartner,TrustType,TrustDirection,TrustAttributes,ForestTransitive,
+@{n='SIDFiltering';e={$_.SidFilteringQuarantined}} |
+Export-Csv ".\Trust_SIDFiltering.csv" -NoTypeInformation -Encoding UTF8
